@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"structure","l":"ListInterface"},{"p":"maze","l":"Maze"},{"p":"maze","l":"MazeBuilder"},{"p":"maze","l":"MazeSolution"},{"p":"maze","l":"Room"},{"p":"maze","l":"UnsolvableMazeException"}]
