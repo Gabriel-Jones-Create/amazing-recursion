@@ -2,8 +2,11 @@ package config;
 
 import maze.Maze;
 import maze.MazeBuilder;
+import maze.MazeBuilderImplementation;
 import maze.MazeSolution;
+import solver.MazeSolver;
 import structure.ListInterface;
+import structure.RecursiveLinkedList;
 
 /**
  * This class acts as a configuration file which tells the testing framework
@@ -29,7 +32,7 @@ public final class Configuration {
    *        the {@link ListInterface} you want graded
    */
   public static <T> ListInterface<T> getListInterface() {
-    return null;
+    return new RecursiveLinkedList<T>();
   }
 
   /**
@@ -39,7 +42,7 @@ public final class Configuration {
    *        the {@link MazeBuilderTest} you want to be graded
    */
   public static MazeBuilder getMazeBuilder() {
-    return null;
+    return new MazeBuilderImplementation();
   }
 
   /**
@@ -50,7 +53,7 @@ public final class Configuration {
    *        the {@link MazeSolution} you want graded
    */
   public static MazeSolution getMazeSolution(final Maze maze) {
-    return null;
+    return new MazeSolver(maze);
   }
 
 }

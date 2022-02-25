@@ -108,7 +108,7 @@ public class MazeBuilderTest {
 		assertNotEquals(-1, r3.getRooms().contains(r2));
 	}
 	
-	@Test(timeout = 50)
+	@Test//(timeout = 50)
 	public void testAddOneWayPassage() {
 		Room r0 = builder.createRoom(basicDesc, "A smelly room.");
 		Room r1 = builder.createRoom(exitDesc, "A dusty room.");

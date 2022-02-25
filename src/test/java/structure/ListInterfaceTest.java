@@ -156,7 +156,7 @@ public class ListInterfaceTest {
 		assertEquals("Last element should be \"bar\"", "bar", list.getLast());
 	}
 	
-	@Test (timeout = 500)
+	@Test //(timeout = 500)
 	public void testInsertsRemoveAndContains(){
 		list.insertLast("Hello").insertLast("World");
 		assertEquals("Hello is at index 0", 0, list.contains("Hello"));
@@ -187,7 +187,24 @@ public class ListInterfaceTest {
 		while(!list.isEmpty())
 			list.removeFirst();
 	}
-	
-	
+	@Test (timeout = 1000)
+	public void testInsertLast() {
+		list.insertLast("Hello").insertLast("World");
+		assertEquals("Hello is at index 0", 0, list.contains("Hello"));
+		assertEquals("World is at index 1", 1, list.contains("World"));
+		assertEquals("Foo is not in the list.", -1, list.contains("Foo"));
+		assertTrue("Hello can be removed.", list.remove("Hello"));
+		assertEquals("Size should now be 1", 1, list.size());
+		list.insertLast("Hello").insertLast("There").insertLast("Hello");
+		assertEquals("World is at index 0", 0, list.contains("World"));
+		assertEquals("First Hello is at index 1", 1, list.contains("Hello"));
+		assertTrue("Hello can be removed.", list.remove("Hello"));
+		assertEquals("First Hello is at index 2", 2, list.contains("Hello"));
+		assertTrue("Hello can be removed.", list.remove("Hello"));
+		assertEquals("Size of list should now be 2", 2, list.size());
+		assertFalse("Foo cannot be removed.", list.remove("Foo"));
+		assertEquals("Size of list should now be 2", 2, list.size());
+		assertFalse("Hello cannot be removed.", list.remove("Hello"));
+	}
 
 }
