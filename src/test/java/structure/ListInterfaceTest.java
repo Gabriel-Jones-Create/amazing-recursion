@@ -206,5 +206,24 @@ public class ListInterfaceTest {
 		assertEquals("Size of list should now be 2", 2, list.size());
 		assertFalse("Hello cannot be removed.", list.remove("Hello"));
 	}
+	@Test (timeout = 1000)
+	public void testEverything() {
+		assertTrue("List should be empty", list.isEmpty());
+		list.insertFirst("Hello");
+		assertFalse("List should not be empty", list.isEmpty());
+		list.insertFirst("Why");
+		assertEquals("List should contain Why at index 0", 0 , list.contains("Why"));
+		list.insertAt(2, "There");
+		assertEquals("Last element should be \"There\"","There", list.getLast());
+		list.remove("Hello"); 
+		assertEquals("Lise size should be 2", 2, list.size());
+		assertEquals("List should not contain \"Hello\"", -1, list.contains("Hello"));
+		list.insertLast("Hat");
+		assertEquals("\"Hat\" should be the last entry in the list", "Hat", list.getLast());
+		assertEquals("The first element in the list should be \"Why\"", "Why", list.removeFirst());
+		assertEquals("The size of the list should be 2", 2, list.size());
+		}
+	
+	
 
 }

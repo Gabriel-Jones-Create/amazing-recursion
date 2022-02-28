@@ -1,9 +1,16 @@
 package structure;
 
+/**
+ * Represents {@link List} of {@link Object}s that can be appended anywhere
+ * 
+ * @author gabrieljones
+ *
+ * @param <T> object type stored in {@link RecursiveLinkedList}
+ */
 public class RecursiveLinkedList<T> implements ListInterface<T> {
 
-  private int count;
-  private Node<T> head, tail;
+  private int count;//number of elements in the list
+  private Node<T> head, tail; // first and last elements in the List
 
   public RecursiveLinkedList() {
     count = 0;
@@ -27,7 +34,6 @@ public class RecursiveLinkedList<T> implements ListInterface<T> {
 
   @Override
   public ListInterface<T> insertFirst(T elem) {
-	// TODO Auto-generated method stub
 	  if(elem == null) {
 		  throw new NullPointerException("Cannot insert null element");
 	  }
@@ -47,7 +53,6 @@ public class RecursiveLinkedList<T> implements ListInterface<T> {
 
  @Override
   public ListInterface<T> insertLast(T elem) {
-    // TODO Literally enqueue from grocery store
 	 if(count == 0) {
 		 return insertFirst(elem);
 	 }
@@ -63,7 +68,6 @@ public class RecursiveLinkedList<T> implements ListInterface<T> {
 
   @Override
   public ListInterface<T> insertAt(int index, T elem) {
-    // TODO Auto-generated method stub
 	// get node at index-1 (using private getNode)
 	// set new nodes next to node at index 1's next
 	//set index-1's next to new node
@@ -125,7 +129,6 @@ public class RecursiveLinkedList<T> implements ListInterface<T> {
 
   @Override
   public T removeAt(int index) {
-    // TODO do this
 	 if(isEmpty()) {
 		  throw new IndexOutOfBoundsException("Cannot remove when your list is empty");
 	 }
@@ -148,7 +151,6 @@ public class RecursiveLinkedList<T> implements ListInterface<T> {
 
   @Override
   public T getFirst() {
-    // TODO Peek from grocery store
 	if(size() == 0) {
 		throw new IllegalStateException("Cannot get first when list does not exist");
 	}
@@ -160,13 +162,11 @@ public class RecursiveLinkedList<T> implements ListInterface<T> {
 	 if(size() == 0) {
 			throw new IllegalStateException("Cannot get last when list does not exist");
 	}
-    // TODO get first but use tail
     return tail.getElement();
   }
 
   @Override
   public T get(int index) {
-    // TODO Auto-generated method stub
     return getNode(head, index).getElement();
   }
 
@@ -208,7 +208,6 @@ public class RecursiveLinkedList<T> implements ListInterface<T> {
 
   @Override
   public boolean isEmpty() {
-    // TODO Auto-generated method stub
 	if(this.size() > 0) {
 		return false;
 	}

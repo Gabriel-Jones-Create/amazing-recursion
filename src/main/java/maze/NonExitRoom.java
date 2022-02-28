@@ -4,10 +4,16 @@ import structure.ListInterface;
 import structure.RecursiveLinkedList;
 
 public class NonExitRoom implements Room{
-	private String longDesc;
-	private String shortDesc;
-	private ListInterface<Room> neighbors;
+	private String longDesc;// Long description for the room
+	private String shortDesc;// Short description for the room
+	private ListInterface<Room> neighbors;//List of adjacent rooms to this room object
 	
+	/**
+	 * Constructs a Room that is not exit to the maze based on long and short description
+	 * 
+	 * @param longDesc Long Description
+	 * @param shortDesc Short Description
+	 */
 	public NonExitRoom(String longDesc, String shortDesc) {
 		this.longDesc = longDesc;
 		this.shortDesc = shortDesc;
@@ -16,13 +22,11 @@ public class NonExitRoom implements Room{
 
 	@Override
 	public String getFullDescription() {
-		// TODO Auto-generated method stub
 		return longDesc;
 	}
 
 	@Override
 	public String getShortDescription() {
-		// TODO Auto-generated method stub
 		return shortDesc;
 	}
 
@@ -34,7 +38,6 @@ public class NonExitRoom implements Room{
 
 	@Override
 	public ListInterface<Room> getRooms() {
-		// TODO Auto-generated method stub
 		return neighbors;
 	}
 

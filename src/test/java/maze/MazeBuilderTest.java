@@ -108,7 +108,7 @@ public class MazeBuilderTest {
 		assertNotEquals(-1, r3.getRooms().contains(r2));
 	}
 	
-	@Test//(timeout = 50)
+	@Test(timeout = 50)
 	public void testAddOneWayPassage() {
 		Room r0 = builder.createRoom(basicDesc, "A smelly room.");
 		Room r1 = builder.createRoom(exitDesc, "A dusty room.");
@@ -131,6 +131,47 @@ public class MazeBuilderTest {
 		
 		assertEquals(0, r0.getRooms().contains(r1));
 		assertEquals(-1, r1.getRooms().contains(r0));
+	}
+	@Test (timeout = 500)
+	public void testAddingLotsOfRooms() {
+		Room r0 = builder.createRoom("An orange room!", "Orange Hallway");
+		Room r1 = builder.createRoom("A red room!", "Red Hallway");
+		Room r2 = builder.createRoom("A blue room!", "Blue Hallway.");
+		Room r3 = builder.createRoom("A purple room!", "Purple Hallway.");
+		Room r4 = builder.createRoom("An green room!", "Green Hallway");
+		Room r5 = builder.createRoom("A Brown room!", "Brown Hallway");
+		Room r6 = builder.createRoom("A Black room!", "Black Hallway.");
+		Room r7 = builder.createRoom("A Beige room!", "Beige Hallway.");
+		Room r8 = builder.createRoom("An Turqoise room!", "Turcoise Hallway");
+		Room r9 = builder.createRoom("A Yard room!", "Yard Hallway");
+		Room r10 = builder.createRoom("A Light room!", "Light Hallway.");
+		Room r11 = builder.createRoom("A Haber room!", "Haber Hallway.");
+		Room r12 = builder.createRoom("An Paper room!", "paper Hallway");
+		Room r13 = builder.createRoom("A Wood room!", "Wood Hallway");
+		Room r15 = builder.createExit("A Hood room!", "Hood Hallway");
+		builder.addPassage(r0, r1).addPassage(r0, r2).addPassage(r0, r3).addPassage(r1, r4).addPassage(r1, r5)
+		.addPassage(r2, r6).addPassage(r2, r7).addPassage(r3, r8).addPassage(r3, r9).addPassage(r6, r8)
+		.addPassage(r9, r3).addPassage(r12, r6).addPassage(r10, r15).addPassage(r11, r13).addPassage(r15, r5);
+		assertFalse(r0.getRooms().isEmpty());
+		assertFalse(r1.getRooms().isEmpty());
+		assertEquals(-1, r2.getRooms().contains(r3));
+		assertEquals(-1, r4.getRooms().contains(r5));
+		assertFalse(r6.getRooms().isEmpty());
+		assertFalse(r7.getRooms().isEmpty());
+		assertEquals(-1, r10.getRooms().contains(r11));
+		assertEquals(-1, r12.getRooms().contains(r13));
+		assertFalse(r15.getRooms().isEmpty());
+		assertFalse(r8.getRooms().isEmpty());
+		assertEquals(-1, r2.getRooms().contains(r4));
+		assertEquals(-1, r3.getRooms().contains(r15));
+		assertFalse(r9.getRooms().isEmpty());
+		assertFalse(r10.getRooms().isEmpty());
+		assertEquals(-1, r12.getRooms().contains(r13));
+		assertEquals(-1, r1.getRooms().contains(r12));
+		assertFalse(r2.getRooms().isEmpty());
+		assertFalse(r15.getRooms().isEmpty());
+		assertEquals(-1, r10.getRooms().contains(r2));
+		assertEquals(-1, r9.getRooms().contains(r5));
 	}
 	
 	@Test (timeout = 50, expected = NullPointerException.class)
